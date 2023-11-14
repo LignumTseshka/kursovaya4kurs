@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Управление компанией</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>
+    <a href="/">Главная</a>
+    <a style="color:red" href="/employees">Список сотрудников</a>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employeeList}">
+        <td><span th:text="${employee.firstName}">Имя</span></td>
+        <td><span th:text="${employee.lastName}">Фамилия</span></td>
+        <td>
+            <form th:action="@{/employees/delete}" method="post">
+<!--                <input type="hidden" th:field="*{employee.id}" /> -->
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h1><a href="/newEmployee">Новый сотрудник</a></h1>
+</body>
+</html>

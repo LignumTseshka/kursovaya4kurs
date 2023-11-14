@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Управление компанией</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>
+    <a href="/">Главная</a>
+    <a href="/employees">Список сотрудников</a>
+</div>
+
+<h1>Регистрация нового сотрудника</h1>
+<form action="#" th:action="@{/newEmployee}" th:object="${employee}" method="post">
+    <p>Имя: <input type="text" th:field="*{firstName}"/> Фамилия: <input type="text" th:field="*{lastName}"/> </p>
+    <p><input type="submit" value="Подтвердить" /> <input type="reset" value="Сбросить" /></p>
+</form>
+
+</body>
+</html>
