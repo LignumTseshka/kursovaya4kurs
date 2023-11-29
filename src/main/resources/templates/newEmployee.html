@@ -12,9 +12,16 @@
 
 <h1>Регистрация нового сотрудника</h1>
 <form action="#" th:action="@{/newEmployee}" th:object="${employee}" method="post">
-    <p>Имя: <input type="text" th:field="*{firstName}"/> Фамилия: <input type="text" th:field="*{lastName}"/> </p>
-    <p><input type="submit" value="Подтвердить" /> <input type="reset" value="Сбросить" /></p>
+    <p>
+        Имя: <input type="text" th:field="*{firstName}"/>
+        Фамилия: <input type="text" th:field="*{lastName}"/>
+    </p>
+    <p>
+        <input type="submit" value="Подтвердить" />
+        <input type="reset" value="Сбросить" />
+    </p>
 </form>
 
 </body>
 </html>
+
