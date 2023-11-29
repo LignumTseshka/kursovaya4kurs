@@ -19,8 +19,10 @@ import java.time.LocalDateTime;
 @SpringBootApplication
 @EnableJpaRepositories
 public class CompanyResourceManagementApplication {
+
 	@Autowired
 	private EmployeeRepository repository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(CompanyResourceManagementApplication.class, args);
 	}
@@ -28,18 +30,21 @@ public class CompanyResourceManagementApplication {
 	@GetMapping("/")
 	public String index(Model model){
 		String employeeCount = String.valueOf(repository.count());
-		model.addAttribute("name", "В нашей компании уже " + employeeCount + " сотрудников!");
+		model.addAttribute("employeeCountMessage",
+				"В нашей компании уже "
+				+ employeeCount + " сотрудников!");
 		return "index";
 	}
 
 	@GetMapping("employees")
 	public String employeesGet(Model model) {
-		model.addAttribute("employeeList", repository.findAll());
+		model.addAttribute("employeeList",
+				repository.findAll());
 		return "employees";
 	}
 
 	@PostMapping("employees/delete")
-	public String deleteEmployee(@RequestParam Long id) {
+	public String deleteEmployee(@RequestParam(name="id") Long id) {
 		repository.deleteById(id);
 		return "redirect:/employees";
 	}
@@ -53,7 +58,7 @@ public class CompanyResourceManagementApplication {
 	@PostMapping("newEmployee")
 	public String employeesPost(@ModelAttribute Employee employee) {
 		repository.save(employee);
-		return "employees";
+		return "redirect:/employees";
 	}
 }
 

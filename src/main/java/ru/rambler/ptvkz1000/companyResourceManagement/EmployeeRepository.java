@@ -7,7 +7,5 @@ import java.util.List;
 
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Long> {
-
-    List<Employee> findById(long id);
-    void deleteById(Long id);
+    
 }
