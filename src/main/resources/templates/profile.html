@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title th:text="${employee.firstName + ' ' + employee.lastName}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div>
+    <a href="/">Главная</a>
+    <a style="color:red" href="/employees">Список сотрудников</a>
+</div>
+
+<div style="width:50%; margin:auto; border:solid; border-width:1px; padding:20px">
+    <h1 style="text-align:center" th:text="${employee.firstName + ' ' + employee.lastName}"></h1><br>
+    <h3 th:text="${employee.registrationDate == null ? 'Дата регистрации: до начала времён' : 'Дата регистрации: ' + employee.registrationDate}"></h3>
+</div>
+
+</body>
+</html>

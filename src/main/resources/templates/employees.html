@@ -21,8 +21,8 @@
     </thead>
     <tbody>
     <tr th:each="employee : ${employeeList}">
-        <td><span th:text="${employee.firstName}">Имя</span></td>
-        <td><span th:text="${employee.lastName}">Фамилия</span></td>
+        <td><a th:href="${'/employees/' + employee.id}"><span th:text="${employee.firstName}">Имя</span></a></td>
+        <td><a th:href="${'/employees/' + employee.id}"><span th:text="${employee.lastName}">Фамилия</span></a></td>
         <td>
             <form action="#" th:action="@{/employees/delete}" method="post">
                 <input type="hidden" th:name="id" th:value="${employee.id}"/>
