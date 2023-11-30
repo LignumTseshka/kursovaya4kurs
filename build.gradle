@@ -15,7 +15,9 @@ java {
 
 }
 
-
+bootJar {
+	enabled = true
+}
 
 repositories {
 	mavenCentral()
